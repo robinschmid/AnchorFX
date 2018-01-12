@@ -41,6 +41,14 @@ import java.util.Random;
  */
 public class AnchorFX_test extends Application {
 
+
+  /**
+   * @param args the command line arguments
+   */
+  public static void main(String[] args) {
+      launch(args);
+  }
+
     @Override
     public void start(Stage primaryStage) {
 
@@ -57,14 +65,14 @@ public class AnchorFX_test extends Application {
         node2.resizableProperty().set(false);
         
       
-//        DockNode node1 = AnchorageSystem.createDock("Tree", generateRandomTree());
-//        node1.dock(station, DockNode.DockPosition.CENTER);
-//  
-//        DockNode node2 = AnchorageSystem.createDock("Editor", new HTMLEditor());
-//        node2.dock(station, DockNode.DockPosition.RIGHT);
-//        
-//        DockNode node3 = AnchorageSystem.createDock("Below the editor", generateRandomTree());
-//        node3.dock(node2, DockNode.DockPosition.BOTTOM,0.8);
+        DockNode node1 = AnchorageSystem.createDock("Tree", generateRandomTree());
+        node1.dock(station, DockNode.DockPosition.CENTER);
+  
+        DockNode node2 = AnchorageSystem.createDock("Editor", new HTMLEditor());
+        node2.dock(station, DockNode.DockPosition.RIGHT);
+        
+        DockNode node3 = AnchorageSystem.createDock("Below the editor", generateRandomTree());
+        node3.dock(node2, DockNode.DockPosition.BOTTOM,0.8);
 
         AnchorageSystem.installDefaultStyle();
 
@@ -72,8 +80,8 @@ public class AnchorFX_test extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
         
-//        DockNode node4 = AnchorageSystem.createDock("Floating", new TableView());
-//        node4.dockAsFloating(primaryStage, station, 0, 0, 400, 200);
+        DockNode node4 = AnchorageSystem.createDock("Floating", new TableView());
+        node4.dockAsFloating(primaryStage, station, 0, 0, 400, 200);
 
         
         AnchorageSystem.installDefaultStyle();
@@ -98,12 +106,4 @@ public class AnchorFX_test extends Application {
 
         return treeView;
     }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
-    }
-
 }
